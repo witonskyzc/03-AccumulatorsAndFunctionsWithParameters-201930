@@ -5,8 +5,8 @@ This module lets you practice  ** using objects **, including:
   -- accessing their DATA via INSTANCE VARIABLES
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Zach Witonsky.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -15,6 +15,9 @@ def main():
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
 
+    two_circles()
+    circle_and_rectangle()
+    lines()
 
 def two_circles():
     """
@@ -27,13 +30,30 @@ def two_circles():
     -- Waits for the user to press the mouse, then closes the window.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this function, per its green doc-string above.
+    # DONE: 2. Implement this function, per its green doc-string above.
     #    -- ANY two rg.Circle objects that meet the criteria are fine.
     #    -- File  COLORS.pdf  lists all legal color-names.
     # Put a statement in   main   to test this function
     #    (by calling this function).
     # -------------------------------------------------------------------------
 
+    width = 500
+    height = 500
+    window = rg.RoseWindow(width, height)
+
+    center_point1 = rg.Point(150, 150)
+    radius1 = 75
+    circle1 = rg.Circle(center_point1, radius1)
+    circle1.fill_color = 'blue'
+    circle1.attach_to(window)
+
+    center_point2 = rg.Point(250, 250)
+    radius2 = 50
+    circle2 = rg.Circle(center_point2, radius2)
+    circle2.attach_to(window)
+
+    window.render()
+    window.close_on_mouse_click()
 
 def circle_and_rectangle():
     """
@@ -67,7 +87,7 @@ def circle_and_rectangle():
            150.0
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this function, per its green doc-string above.
+    # DONE: 3. Implement this function, per its green doc-string above.
     #   -- ANY objects that meet the criteria are fine.
     # Put a statement in   main   to test this function
     #    (by calling this function).
@@ -76,6 +96,38 @@ def circle_and_rectangle():
     #       instance variables for outline thickness, etc.
     # -------------------------------------------------------------------------
 
+    width = 500
+    height = 500
+    window = rg.RoseWindow(width, height)
+
+    # Circle
+    center_point1 = rg.Point(350, 150)
+    radius1 = 75
+
+    circle1 = rg.Circle(center_point1, radius1)
+    circle1.fill_color = 'blue'
+    circle1.attach_to(window)
+
+    print(circle1.outline_thickness)
+    print(circle1.fill_color)
+    print(center_point1)
+    print(center_point1.x)
+    print(center_point1.y)
+
+    # Rectangle
+    point1 = rg.Point(100, 150)
+    point2 = rg.Point(200, 50)
+    rectangle = rg.Rectangle(point1, point2)
+    rectangle.attach_to(window)
+
+    print(rectangle.outline_thickness)
+    print(rectangle.fill_color)
+    print(rectangle.get_center())
+    print(rectangle.get_center().x)
+    print(rectangle.get_center().y)
+
+    window.render()
+    window.close_on_mouse_click()
 
 def lines():
     """
@@ -99,8 +151,35 @@ def lines():
 
     -- Waits for the user to press the mouse, then closes the window.
     """
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
 
+    width = 500
+    height = 500
+    window = rg.RoseWindow(width, height)
+
+    # Line 1
+    line1 = rg.Line(rg.Point(400,300),rg.Point(169,273))
+    line1.thickness
+    line1.color = 'blue'
+    line1.attach_to(window)
+
+    print(line1.get_midpoint())
+    print(line1.get_midpoint().x)
+    print(line1.get_midpoint().y)
+
+
+    # Line 2
+    line2 = rg.Line(rg.Point(100,100),rg.Point(121,200))
+    line2.thickness = 10
+    line2.color = 'blue'
+    line2.attach_to(window)
+
+    print(line2.get_midpoint())
+    print(line2.get_midpoint().x)
+    print(line2.get_midpoint().y)
+
+    window.render()
+    window.close_on_mouse_click()
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
