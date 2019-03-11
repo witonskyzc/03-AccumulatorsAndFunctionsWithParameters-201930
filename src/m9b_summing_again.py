@@ -95,13 +95,13 @@ def run_test_sum_powers_in_range():
     print('       actual:  ', answer)
 
     # Test 2:
-    expected = 144.45655
+    expected = 15.080299
     answer = sum_powers_in_range(5, 10, 0.3)
     print('Test 2 expected:', expected)
     print('       actual:  ', answer)
 
     # Test 3:
-    expected = 385
+    expected = 35.596213
     answer = sum_powers_in_range(2, 15, 0.5)
     print('Test 3 expected:', expected)
     print('       actual:  ', answer)
